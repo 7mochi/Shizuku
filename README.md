@@ -4,14 +4,9 @@
 
 **Table of Contents**
 
-[TOCM]
-
-[TOC]
-
 ### About
 
-####Future features
-
+### Future features
 - Pending
 - Pending
 - Pending
