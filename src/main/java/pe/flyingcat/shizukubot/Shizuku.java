@@ -11,6 +11,7 @@ import pe.flyingcat.shizukubot.commands.config.LanguageCommand;
 import pe.flyingcat.shizukubot.commands.guildAdministration.KickCommand;
 import pe.flyingcat.shizukubot.commands.essentials.HelpCommand;
 import pe.flyingcat.shizukubot.commands.essentials.InfoCommand;
+import pe.flyingcat.shizukubot.commands.guildAdministration.BanCommand;
 import pe.flyingcat.shizukubot.settings.SettingsManager;
 import pe.flyingcat.shizukubot.util.ApplicationExitCodes;
 import pe.flyingcat.shizukubot.util.Multilanguage;
@@ -35,6 +36,7 @@ public class Shizuku {
             builder.addEventListener(help.registerCommand(help));
             builder.addEventListener(help.registerCommand(new InfoCommand()));
             builder.addEventListener(help.registerCommand(new KickCommand()));
+            builder.addEventListener(help.registerCommand(new BanCommand()));
             builder.addEventListener(help.registerCommand(new LanguageCommand()));
             // Login to discord
             bot = builder.build();
