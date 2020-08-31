@@ -11,6 +11,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.HierarchyException;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import pe.flyingcat.shizukubot.commands.Command;
 import pe.flyingcat.shizukubot.util.RegExp;
 
@@ -61,10 +62,14 @@ public class KickCommand extends Command {
                                 builder.append(members.get(0).getUser().getName());
                                 builder.append(multiLang.getMessage("APP_KICK_COMM_SUCCESS_2"));
                                 sendMessage(e, builder.build());
-                            } catch (HierarchyException ex) {
+                            } catch (Exception ex) {
                                 MessageBuilder builder = new MessageBuilder();
                                 builder.append(e.getAuthor());
-                                builder.append(multiLang.getMessage("APP_KICK_COMM_HIGHER_ROL"));
+                                if (ex instanceof HierarchyException) {
+                                    builder.append(multiLang.getMessage("APP_KICK_COMM_HIGHER_ROL"));
+                                } else if (ex instanceof InsufficientPermissionException) {
+                                    builder.append(multiLang.getMessage("APP_KICK_COMM_INSUFF_PERMS"));
+                                }
                                 sendMessage(e, builder.build());
                             }
                         }
