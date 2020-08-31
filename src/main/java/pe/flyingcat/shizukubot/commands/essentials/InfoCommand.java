@@ -21,7 +21,7 @@ public class InfoCommand extends Command {
             + "- ID: 123933139449020416\n"
             + "\n"
             + "* " + multiLang.getMessage("APP_INFO_COMM_MSG_3") + "\n"
-            + "- " + multiLang.getMessage("APP_INFO_COMM_MSG_4") + ": Java 12.0.1\n"
+            + "- " + multiLang.getMessage("APP_INFO_COMM_MSG_4") + ": Java 8\n"
             + "- " + multiLang.getMessage("APP_INFO_COMM_MSG_5") + ": JDA - v" + JDAInfo.VERSION + "\n"
             + "```";
 
