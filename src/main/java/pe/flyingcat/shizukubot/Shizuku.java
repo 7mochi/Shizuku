@@ -1,7 +1,6 @@
 package pe.flyingcat.shizukubot;
 
 import javax.security.auth.login.LoginException;
-import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import org.apache.logging.log4j.LogManager;
@@ -31,16 +30,15 @@ public class Shizuku {
         try {
             multiLang = new Multilanguage(settings.getLanguage());
             JDABuilder builder = JDABuilder.createDefault(settings.getBotToken());
-            //JDABuilder jda = new JDABuilder(AccountType.BOT).setToken(settings.getBotToken());
             // Registering all help messages
             HelpCommand help = new HelpCommand();
+            // Login to discord
+            bot = builder.build();
             bot.addEventListener(help.registerCommand(help));
             bot.addEventListener(help.registerCommand(new InfoCommand()));
             bot.addEventListener(help.registerCommand(new KickCommand()));
             bot.addEventListener(help.registerCommand(new BanCommand()));
             bot.addEventListener(help.registerCommand(new LanguageCommand()));
-            // Login to discord
-            bot = builder.build();
             System.out.println(multiLang.getMessage("APP_LOGIN_SUCCESS"));
             log.info(multiLang.getMessage("APP_LOGIN_SUCCESS"));
         } catch (LoginException | NullPointerException e) {
