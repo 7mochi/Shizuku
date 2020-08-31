@@ -1,11 +1,11 @@
 package pe.flyingcat.shizukubot.commands;
 
 import java.util.List;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.ChannelType;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import pe.flyingcat.shizukubot.beans.Settings;
 import pe.flyingcat.shizukubot.settings.SettingsManager;
 import pe.flyingcat.shizukubot.util.Multilanguage;

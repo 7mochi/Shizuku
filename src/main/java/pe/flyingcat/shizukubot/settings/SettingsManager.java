@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.api.JDA;
 import pe.flyingcat.shizukubot.beans.Settings;
 import pe.flyingcat.shizukubot.util.ApplicationExitCodes;
 import pe.flyingcat.shizukubot.util.Multilanguage;

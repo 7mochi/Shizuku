@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.ChannelType;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.exceptions.HierarchyException;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.ChannelType;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.exceptions.HierarchyException;
 import pe.flyingcat.shizukubot.commands.Command;
 import pe.flyingcat.shizukubot.util.RegExp;
 
@@ -75,7 +75,7 @@ public class BanCommand extends Command {
                             } else {
                                 Guild guild = e.getGuild();
                                 try {
-                                    guild.getController().ban(members.get(0), deleteMessagesDay, reason)
+                                    guild.ban(members.get(0), deleteMessagesDay, reason)
                                             .queue();
                                     MessageBuilder builder = new MessageBuilder();
                                     builder.append(e.getAuthor());

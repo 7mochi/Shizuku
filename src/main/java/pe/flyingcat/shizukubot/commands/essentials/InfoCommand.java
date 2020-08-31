@@ -2,9 +2,9 @@ package pe.flyingcat.shizukubot.commands.essentials;
 
 import java.util.Arrays;
 import java.util.List;
-import net.dv8tion.jda.core.JDAInfo;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.JDAInfo;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import pe.flyingcat.shizukubot.commands.Command;
 import pe.flyingcat.shizukubot.util.ApplicationInfo;
 

@@ -1,9 +1,9 @@
 package pe.flyingcat.shizukubot;
 
 import javax.security.auth.login.LoginException;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pe.flyingcat.shizukubot.beans.Settings;
@@ -30,14 +30,15 @@ public class Shizuku {
     public static void main(String[] args) {
         try {
             multiLang = new Multilanguage(settings.getLanguage());
-            JDABuilder builder = new JDABuilder(AccountType.BOT).setToken(settings.getBotToken());
+            JDABuilder builder = JDABuilder.createDefault(settings.getBotToken());
+            //JDABuilder jda = new JDABuilder(AccountType.BOT).setToken(settings.getBotToken());
             // Registering all help messages
             HelpCommand help = new HelpCommand();
-            builder.addEventListener(help.registerCommand(help));
-            builder.addEventListener(help.registerCommand(new InfoCommand()));
-            builder.addEventListener(help.registerCommand(new KickCommand()));
-            builder.addEventListener(help.registerCommand(new BanCommand()));
-            builder.addEventListener(help.registerCommand(new LanguageCommand()));
+            bot.addEventListener(help.registerCommand(help));
+            bot.addEventListener(help.registerCommand(new InfoCommand()));
+            bot.addEventListener(help.registerCommand(new KickCommand()));
+            bot.addEventListener(help.registerCommand(new BanCommand()));
+            bot.addEventListener(help.registerCommand(new LanguageCommand()));
             // Login to discord
             bot = builder.build();
             System.out.println(multiLang.getMessage("APP_LOGIN_SUCCESS"));
