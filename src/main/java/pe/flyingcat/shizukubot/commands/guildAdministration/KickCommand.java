@@ -37,16 +37,16 @@ public class KickCommand extends Command {
                 sendMessage(e, builder.build());
             } else {
                 Member author = e.getMessage().getMember();
-                if (author.hasPermission(Permission.KICK_MEMBERS)) {
-                    List<Member> members = e.getMessage().getMentionedMembers();
-                    // Author have permission but didn't tag user
-                    if (members.isEmpty()) {
-                        MessageBuilder builder = new MessageBuilder();
-                        builder.append(e.getAuthor());
-                        builder.append(multiLang.getMessage("APP_KICK_COMM_EMPTY"));
-                        sendMessage(e, builder.build());
-                    } else {
-                        // Author tried to kick himself
+                List<Member> members = e.getMessage().getMentionedMembers();
+                // Author didn't tag user
+                if (members.isEmpty()) {
+                    MessageBuilder builder = new MessageBuilder();
+                    builder.append(e.getAuthor());
+                    builder.append(multiLang.getMessage("APP_KICK_COMM_EMPTY"));
+                    sendMessage(e, builder.build());
+                } else {
+                    if (author.hasPermission(Permission.KICK_MEMBERS)) {
+                        // Author have permission and tried to kick himself
                         if (e.getAuthor() == members.get(0)) {
                             MessageBuilder builder = new MessageBuilder();
                             builder.append(e.getAuthor());
@@ -73,16 +73,8 @@ public class KickCommand extends Command {
                                 sendMessage(e, builder.build());
                             }
                         }
-                    }
-                } else {
-                    List<Member> members = e.getMessage().getMentionedMembers();
-                    // Author don't have permission and didn't tag user
-                    if (members.isEmpty()) {
-                        MessageBuilder builder = new MessageBuilder();
-                        builder.append(e.getAuthor());
-                        builder.append(multiLang.getMessage("APP_KICK_COMM_EMPTY"));
-                        sendMessage(e, builder.build());
-                    } else { // Author don't have permission
+                    } else {
+                        // Author doesn't have permission
                         MessageBuilder builder = new MessageBuilder();
                         builder.append(e.getAuthor());
                         builder.append(multiLang.getMessage("APP_KICK_COMM_CANT"));
