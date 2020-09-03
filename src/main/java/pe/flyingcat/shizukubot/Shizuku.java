@@ -11,6 +11,7 @@ import pe.flyingcat.shizukubot.commands.guildAdministration.KickCommand;
 import pe.flyingcat.shizukubot.commands.essentials.HelpCommand;
 import pe.flyingcat.shizukubot.commands.essentials.InfoCommand;
 import pe.flyingcat.shizukubot.commands.guildAdministration.BanCommand;
+import pe.flyingcat.shizukubot.commands.guildAdministration.BulkMuteCommand;
 import pe.flyingcat.shizukubot.settings.SettingsManager;
 import pe.flyingcat.shizukubot.util.ApplicationExitCodes;
 import pe.flyingcat.shizukubot.util.Multilanguage;
@@ -39,6 +40,7 @@ public class Shizuku {
             bot.addEventListener(help.registerCommand(new KickCommand()));
             bot.addEventListener(help.registerCommand(new BanCommand()));
             bot.addEventListener(help.registerCommand(new LanguageCommand()));
+            bot.addEventListener(help.registerCommand(new BulkMuteCommand()));
             System.out.println(multiLang.getMessage("APP_LOGIN_SUCCESS"));
             log.info(multiLang.getMessage("APP_LOGIN_SUCCESS"));
         } catch (LoginException | NullPointerException e) {
